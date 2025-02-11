@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiY-0d-KA2">
-                                <rect key="frame" x="96" y="634" width="200" height="40"/>
+                                <rect key="frame" x="96.666666666666686" y="634" width="200" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="6yV-lI-tM3"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg0-o1-5sH">
-                                <rect key="frame" x="96" y="702" width="200" height="40"/>
+                                <rect key="frame" x="96.666666666666686" y="702" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="CK5-9k-Qfa"/>
                                 </constraints>
@@ -39,11 +39,9 @@
                                     <segue destination="03D-TT-fBu" kind="show" identifier="ViewCreateRecipe" id="bch-tV-zwR"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="JNX-Mj-gOL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="JNX-Mj-gOL">
                                 <rect key="frame" x="2" y="168" width="388" height="383"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="JNX-Mj-gOL" secondAttribute="height" multiplier="388:383" id="MHF-aJ-ni1"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -57,9 +55,9 @@
         <!--View Recipes Table View Controller-->
         <scene sceneID="MN7-dH-ozJ">
             <objects>
-                <tableViewController id="LpL-H0-9BJ" customClass="ViewRecipesTableViewController" customModule="RecipeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="LpL-H0-9BJ" customClass="ViewRecipesTableViewController" customModule="RecipeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aUi-Zc-rM4">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -86,18 +84,31 @@
         <!--Create Recipe View Controller-->
         <scene sceneID="ofi-mT-0Nw">
             <objects>
-                <viewController id="03D-TT-fBu" customClass="CreateRecipeViewController" customModule="RecipeGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="03D-TT-fBu" customClass="CreateRecipeViewController" customModule="RecipeGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h2D-z5-V8N">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M0r-t7-2g2">
+                                <rect key="frame" x="16" y="56" width="361" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Image Based"/>
+                                    <segment title="Ingredient Entry"/>
+                                </segments>
+                                <connections>
+                                    <action selector="GenerationTypeChanged:" destination="03D-TT-fBu" eventType="valueChanged" id="8qX-5u-bQV"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3b6-7l-wAW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.20147717000000001" green="0.2141691744" blue="0.2291858494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="aDb-Xe-dFJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCd-6S-Qv1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="285"/>
+            <point key="canvasLocation" x="1093.8931297709923" y="284.50704225352115"/>
         </scene>
     </scenes>
     <resources>

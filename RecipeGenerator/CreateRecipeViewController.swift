@@ -8,13 +8,28 @@
 import UIKit
 
 class CreateRecipeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        buildImageBased()
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func GenerationTypeChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            buildImageBased()
+        } else {
+            buildIngredientBased()
+        }
+    }
+    
+    func buildImageBased() {
+        print("building image based")
+    }
+    
+    func buildIngredientBased() {
+        print("building ingredient based")
+    }
 
     /*
     // MARK: - Navigation
